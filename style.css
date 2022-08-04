@@ -37,6 +37,7 @@ body {
     font-size: 50px;
     font-weight: 700;
     padding: 10px 20px;
+    
 }
 
 #buttons {
@@ -63,26 +64,54 @@ body {
     background-color: rgb(221, 150, 17);
 }
 
+.operator:focus {
+    background-color: rgb(225, 171, 77);
+}
+
 .equal {
     background-color: rgb(221, 150, 17);
+}
+
+.equal:active {
+    background-color: rgb(225, 171, 77);
 }
 
 .number {
     background-color: rgba(0, 128, 96, 0.73);
 }
 
+.number:active {
+    background-color: rgba(31, 125, 101, 0.906);
+}
+
 .decimal {
     background-color: rgba(0, 128, 96, 0.73);
+}
+
+.decimal:active {
+    background-color: rgba(31, 125, 101, 0.906);
 }
 
 .clear {
     background-color: rgb(104, 55, 229);
 }
 
+.clear:active {
+    background-color: rgb(117, 77, 218);
+}
+
 .sign {
     background-color: rgb(104, 55, 229);
 }
 
+.sign:active {
+    background-color: rgb(117, 77, 218);
+}
+
 .percent {
     background-color: rgb(104, 55, 229);
+}
+
+.percent:active {
+    background-color: rgb(117, 77, 218);
 }
