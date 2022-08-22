@@ -7,7 +7,6 @@ const equal = document.querySelector('.equal');
 const sign = document.querySelector('.sign');
 const clear = document.querySelector('.clear');
 const decimal = document.querySelector('.decimal');
-//let operator;
 let result = '';
 let currentOperator = null;
 let resetOperation = false;
@@ -23,25 +22,26 @@ function assignNumber(e) {
     if (resetOperation === true) {
         resetNumber();
         resetOperation = false;
-    };
+    }
     currentNumber += e.target.value;
     display.textContent = currentNumber; 
     if (currentNumber.length > 12) {
         display.textContent = currentNumber.substring(0,12);
         currentNumber = display.textContent;
-    };
+    }
 }
 
 
 function assignOperator(e) {
+    if (currentOperator !== null && currentNumber === '') {
+        currentOperator = e.target.value;
+        return;
+    }
     if (currentOperator !== null)  evaluate();
     if (currentNumber === '') currentNumber = 0;
     previousNumber = parseFloat(currentNumber);
     resetNumber();
-    //operator = e.target.value;
-    //currentOperator = operator;
     currentOperator = e.target.value;
-
 }
 
 function operate() {
@@ -57,7 +57,7 @@ function operate() {
         } else {
             return divide(a, b);
         }
-    };
+    }
 } 
     
 function evaluate() {
@@ -90,11 +90,6 @@ function addDecimal() {
         };
         currentNumber += '.';
         display.textContent = currentNumber;
-
-        // // add point to result nb
-        // resetOperation = false;
-        //display.textContent += '.';
-        //currentNumber = display.textContent;
 }
 
 function resetAll() {
@@ -145,4 +140,14 @@ const divide = (a,b) =>  a / b;
 function roundResult(num) {
     return Math.round(num * 100000) / 100000;
 };
+
+
+window.addEventListener('keydown', handleKey);
+
+function handleKey (e) {
+    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    key.click();
+    key.classList.add(':active');
+};
+
 
